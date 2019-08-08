@@ -1,0 +1,46 @@
+<div id="content-container">
+				<div id="page-head">
+
+					<!--Page Title-->
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<div id="page-title">
+						<h1 class="page-header text-overflow">Category</h1>
+					</div>
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<!--End page title-->
+				</div>
+
+
+
+				<!--Page content-->
+				<!--===================================================-->
+				<div id="page-content">
+					<hr class="new-section-md bord-no">
+					<div class="row">
+						<% @category.each do |category| %>
+						<div class="col-sm-4">
+							<!---------------------------------->
+							<div>
+								<a href="/items?category_id=<%= category.id %>" class="pull-right btn btn-info btn-sm">Go</a>
+								<h4 class="text-main"><%= category.title %></h4>
+								<hr>
+								<br>
+								<ul id="demo-tasklist-upcoming" class="sortable-list tasklist list-unstyled">
+										<li id="demo-tasklist-12" class="task-info" onclick="location.href='#'">
+											<p class="text-bold text-main text-sm " id="category_id" data-categoryno="<%= category.id %>"><%= image_tag category.image.url ,style: 'width: 450px; height: 300px;' unless category.image.url.nil? %>
+											<p class="text-bold text-main text-sm text-left"><%= category.body %></p>
+										</li>
+								</ul>
+							</div>
+							<!---------------------------------->
+						</div>
+						<% end %>
+						<br/>
+					</div>
+					<br/><br/><br/>
+				</div>
+
+				<!--===================================================-->
+				<!--End page content-->
+
+			</div>

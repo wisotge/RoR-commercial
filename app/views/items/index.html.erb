@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+
+  <style>
+    #map {
+	     height: 400px;
+	      width: 100%;
+    }
+  </style>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Item List</title>
+
+
+  <!--STYLESHEET-->
+  <!--=================================================-->
+  <!--Open Sans Font [ OPTIONAL ]-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+  <!--Bootstrap Stylesheet [ REQUIRED ]-->
+  <link href="/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  <!--Nifty Stylesheet [ REQUIRED ]-->
+  <link href="/assets/stylesheets/nifty.min.css" rel="stylesheet">
+
+  <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+  <link href="/assets/stylesheets/demo/nifty-demo-icons.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<div id="container" class="effect aside-float aside-bright mainnav-lg">
+
+		<!--NAVBAR-->
+		<!--NAVBAR-->
+		<!--===================================================-->
+		<!-- header -->
+    <%= render "main/includes/navbar" %>
+		<!--===================================================-->
+		<!--END NAVBAR-->
+		<!--===================================================-->
+
+		<div class="boxed">
+
+			<!--CONTENT CONTAINER-->
+			<!--===================================================-->
+			<div id="content-container">
+				<div id="page-head">
+
+					<!--Page Title-->
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<div id="page-title">
+						<h1 class="page-header text-overflow">Item List</h1>
+					</div>
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<!--End page title-->
+
+					<!--Breadcrumb-->
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<ol class="breadcrumb">
+						<li><%= @category.title %></li>
+					</ol>
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<!--End breadcrumb-->
+
+				</div>
+				<div id="page-content">
+					<div class="row">
+						<div class="col-lg-8">
+              <% @item.each do |item| %>
+							<div class="fluid">
+              <div class="blog blog-list">
+                <!---------------------------------->
+                <div class="panel">
+					        <div class="blog-header">
+					          <p><%= image_tag item.image.url ,style: 'width: 300px; height: 200px;' unless item.image.url.nil? %></p>
+					        </div>
+					        <div class="blog-content">
+					          <div class="blog-title media-block">
+					            <div class="media-body">
+                        <a href="/items/<%= item.id %>" class="btn-link">
+                            <h2><%= item.title %></h2>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="blog-body">
+                        <p><strong>price</strong></p>
+                        <p><%= item.price %>$</p>
+                        <p><strong>description</strong></p>
+                        <p><%= item.body %></p>
+                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. </p>
+                    </div>
+					        </div>
+                  <div class='blog-footer media-right text-right'>
+                       <a href="#" class="task-footer">
+                         <span class="box-inline">
+                           <span class="pad-rgt">
+                             <button class="btn btn-default btn-labeled"> Add comment </button>
+                           </span>
+                           <span class="pad-rgt">
+                             <button class="btn btn-default btn-labeled"> Add to WishList </button>
+                          </span>
+                          <span class="text-sm">
+                             <button class="btn btn-default btn-labeled"> Add to Cart </button>
+                          </span>
+											  </span>
+										   </a>
+                  </div>
+                </div>
+                <!---------------------------------->
+              </div>
+							</div>
+              <%end%>
+							<div class="col-sm-7 text-right">
+									<ul id="pager" class="pagination">
+									</ul>
+							</div>
+						</div>
+						<div class="col-lg-4">
+              hello
+						</div>
+					</div>
+
+					<!--===================================================-->
+
+				</div>
+
+			</div>
+			<!--===================================================-->
+			<!--End page content-->
+
+		</div>
+
+		<!--MAIN NAVIGATION-->
+		<!--===================================================-->
+    <%= render "main/includes/mainnav" %>
+		<!--===================================================-->
+		<!--END MAIN NAVIGATION-->
+
+		<!--===================================================-->
+		<!--END CONTENT CONTAINER-->
+
+		<!-- FOOTER -->
+    <%= render "main/includes/footer" %>
+
+		<!-- SCROLL PAGE BUTTON -->
+		<!--===================================================-->
+		<button class="scroll-top btn">
+			<i class="pci-chevron chevron-up"></i>
+		</button>
+		<!--===================================================-->
+	</div>
+	<!--===================================================-->
+	<!-- END OF CONTAINER -->
+
+
+
+
+
+	<!--JAVASCRIPT-->
+	<!--=================================================-->
+  <!--jQuery [ REQUIRED ]-->
+  <script src="/assets/javascripts/jquery.min.js"></script>
+
+
+  <!--BootstrapJS [ RECOMMENDED ]-->
+  <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+
+  <!--NiftyJS [ RECOMMENDED ]-->
+  <script src="/assets/javascripts/nifty.min.js"></script>
+
+  <!--=================================================-->
+
+  <!--Demo script [ DEMONSTRATION ]-->
+  <script src="/assets/javascripts/nifty-demo.min.js"></script>
+
+
+</body>
+</html>

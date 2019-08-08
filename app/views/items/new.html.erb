@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<head>
+
+<style>
+#map {
+	height: 400px;
+	width: 100%;
+}
+</style>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Item register</title>
+
+
+<!--STYLESHEET-->
+<!--=================================================-->
+
+<!--Open Sans Font [ OPTIONAL ]-->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+<!--Bootstrap Stylesheet [ REQUIRED ]-->
+<link href="/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+<!--Nifty Stylesheet [ REQUIRED ]-->
+<link href="/assets/stylesheets/nifty.min.css" rel="stylesheet">
+
+<!--Nifty Premium Icon [ DEMONSTRATION ]-->
+<link href="/assets/stylesheets/nifty-demo-icons.min.css" rel="stylesheet">
+
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+<body>
+	<div id="container" class="effect aside-float aside-bright mainnav-lg">
+
+		<!--NAVBAR-->
+		<!--===================================================-->
+		<!-- header -->
+    <%= render "main/includes/navbar" %>
+  	<!--===================================================-->
+		<!--END NAVBAR-->
+		<!--===================================================-->
+
+		<div class="boxed">
+
+			<!--CONTENT CONTAINER-->
+			<!--===================================================-->
+			<div id="content-container">
+				<div id="page-head"></div>
+
+
+				<!--Page content-->
+				<!--===================================================-->
+				<div id="page-content">
+
+					<div class="fixed-fluid">
+						<!-- map -->
+						<div class="fixed-sm-350 pull-sm-right">
+
+						</div>
+
+						<div class="fluid">
+							<!-- Panel  Blog -->
+							<!--===================================================-->
+							<div class="panel">
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-4">
+                      <div id="page-title">
+                        <h1 class="page-header text-overflow">Item List</h1>
+                      </div>
+										</div>
+									</div>
+                  <%= form_for @item do |f| %>
+									<div class="form-horizontal">
+                    <!-- item title -->
+										<div class="input-group mar-btm">
+											<div class="input-group-btn dropdown category">
+                        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle category" type="button">
+													Category <i class="dropdown-caret"></i>
+												</button>
+                    <!--
+												<ul class="dropdown-menu" id="subjectList">
+													<li data-categroyno="1" id="device"><a href="#">device</a></li>
+													<li data-categroyno="2" id="food"><a href="#">food</a></li>
+													<li data-categoryno="3" id="clothes"><a href="#">clothes</a></li>
+                          <li data-categoryno="0" id="etc"><a href="#">etc</a></li>
+												</ul>
+                      -->
+
+											</div>
+                      <%= f.hidden_field :category_id, :class=>"form-control" %>
+                      <%= f.text_field :title, :class=>"form-control", :cols=>"30", :rows=>"10", :placeholder=>"title" %>
+										</div>
+                    <!-- item body -->
+                    <div class="row form-group">
+                      <div class="col-md-12">
+                        <%= f.text_area :body, :class=>"form-control", :cols=>"30", :rows=>"10", :placeholder=>"body" %> <br/>
+                      </div>
+                    </div>
+										<!-- item image -->
+										<div class="row form-group">
+											<div class="col-md-12">
+												<%= f.file_field :image, :class=>"form-control" %> <br/>
+											</div>
+										</div>
+										<!-- item price -->
+										<div class="row form-group">
+											<div class="col-md-6">
+												<%= f.text_field :price, :class=>"form-control", :placeholder=>"price" %> <br/>
+											</div>
+										</div>
+                    <!-- submit button -->
+										<button type="submit" class="btn btn-primary btn-block btn-lg" id="register-post">Submit</button>
+									</div>
+                  <% end %>
+								</div>
+								<!--===================================================-->
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!--===================================================-->
+				<!--End page content-->
+
+				<!-- Contact Panel -->
+				<!---------------------------------->
+				<div class="panel"></div>
+				<!---------------------------------->
+
+
+
+			</div>
+			<!--===================================================-->
+			<!--End page content-->
+
+		</div>
+
+    <!--MAIN NAVIGATION-->
+    <!--===================================================-->
+    <%= render "main/includes/mainnav" %>
+    <!--===================================================-->
+    <!--END MAIN NAVIGATION-->
+
+    <!--===================================================-->
+    <!--END CONTENT CONTAINER-->
+
+    <!-- FOOTER -->
+    <%= render "main/includes/footer" %>
+
+    <!-- SCROLL PAGE BUTTON -->
+    <!--===================================================-->
+    <button class="scroll-top btn">
+      <i class="pci-chevron chevron-up"></i>
+    </button>
+    <!--===================================================-->
+	</div>
+	<!--===================================================-->
+	<!-- END OF CONTAINER -->
+
+
+
+	<!--JAVASCRIPT-->
+	<!--=================================================-->
+  <!--jQuery [ REQUIRED ]-->
+  <script src="/assets/javascripts/jquery.min.js"></script>
+
+
+  <!--BootstrapJS [ RECOMMENDED ]-->
+  <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+
+  <!--NiftyJS [ RECOMMENDED ]-->
+  <script src="/assets/javascripts/nifty.min.js"></script>
+  <!--=================================================-->
+
+  <!--Demo script [ DEMONSTRATION ]-->
+  <script src="/assets/javascripts/nifty-demo.min.js"></script>
+
+  <script type="text/javascript">
+  $("document").ready(function(){
+    $(".category .dropdown-menu li a").click(function() {
+			console.log("-------------------select category-----------------");
+			$(".category .btn:first-child").text($(this).text());
+			$(".category .btn:first-child").val($(this).text());
+		});
+  })
+  </script>
+</body>
+</html>
