@@ -8,7 +8,7 @@ gem 'therubyracer'
 # login
 gem 'devise'
 # upload imagefile
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 # acitve admin
 gem 'activeadmin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
